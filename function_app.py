@@ -7,11 +7,13 @@ from io import BytesIO
 from PIL import Image
 import json
 
+# Configura logging
+logging.basicConfig(level=logging.INFO)
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-@app.route(route="verify_face", methods=["POST"])
-def verify_face(req: func.HttpRequest) -> func.HttpResponse:
+@app.route(route="verifyface", methods=["POST"])
+def verifyface(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP POST trigger function VERIFY_FACE, processed a request.')
     try:
         # 1. Parsear el JSON de entrada
